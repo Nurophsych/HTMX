@@ -1,0 +1,23 @@
+body{
+    background-color:crimson;
+}
+
+
+h1{
+    color: whitesmoke;
+    background-color: black;
+    display: grid;
+    place-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+    width: 300px;   /* Set the width to 300 pixels */
+    height: 100px;  /* Set the height to 200 pixels */ 
+    border-radius: ; 
+}
+h3{
+    color: whitesmoke;
+    display: grid;
+    place-items: center;
+    height: 10vh;
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
