@@ -1,0 +1,25 @@
+<!-- entry_list.html -->
+<h1>Entry List</h1>
+
+<!-- Form to add a new entry (fields above the button) -->
+<form id="entry-form" hx-post="{% url 'add_entry' %}" hx-target="#entries-list" hx-swap="outerHTML">
+    {% csrf_token %}
+    
+    <!-- Name input field -->
+    <label for="id_name">Name:</label>
+    <input type="text" id="id_name" name="name" required>
+    
+    <!-- Information input field -->
+    <label for="id_information">Information:</label>
+    <textarea id="id_information" name="information" required></textarea>
+    
+    <!-- Submit button -->
+    <button type="submit">Add New Entry</button>
+</form>
+
+<!-- Display existing entries -->
+<ul id="entries-list">
+    {% for entry in entries %}
+        <li>{{ entry.name }}: {{ entry.information }}</li>
+    {% endfor %}
+</ul>
