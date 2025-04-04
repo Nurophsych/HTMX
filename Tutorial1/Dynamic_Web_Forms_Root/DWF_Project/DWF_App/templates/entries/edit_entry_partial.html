@@ -1,0 +1,12 @@
+<!-- edit_entry_partial.html -->
+<div class="card mb-3 shadow-sm" id="entry-{{ entry.id }}">
+    <div class="card-body">
+        <h5 class="card-title">Edit Entry</h5>
+        <form method="POST" hx-post="{% url 'edit_entry' entry.id %}" hx-target="#entry-{{ entry.id }}" hx-swap="outerHTML">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{% url 'entry_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

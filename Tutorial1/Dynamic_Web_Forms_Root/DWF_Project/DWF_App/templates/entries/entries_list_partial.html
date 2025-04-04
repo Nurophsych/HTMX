@@ -1,0 +1,6 @@
+{% for entry in entries %}
+    {% include "entries/entry_item.html" with entry=entry %}
+{% empty %}
+    <div class="alert alert-info">No notes yet. Add your first note above!</div>
+{% endfor %}
+

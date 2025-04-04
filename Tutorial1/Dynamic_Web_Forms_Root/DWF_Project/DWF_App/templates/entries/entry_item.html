@@ -1,0 +1,36 @@
+<div class="card mb-3 shadow-sm" id="entry-{{ entry.id }}">
+    <div class="card-body">
+        <h5 class="card-title text-primary">{{ entry.name }}</h5>
+        <p class="card-text">{{ entry.information }}</p>
+        
+        <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">
+                Created: {{ entry.created_at|date:"F j, Y, g:i a" }}
+                {% if entry.updated_at != entry.created_at %}
+                    | Updated: {{ entry.updated_at|date:"F j, Y, g:i a" }}
+                {% endif %}
+            </small>
+
+            <!-- Buttons for Edit & Delete -->
+            <div>
+                <!-- Edit Button -->
+                <button  class="btn btn-sm btn-outline-warning"
+                 hx-get="{% url 'edit_entry' entry.id %}"
+                  hx-target="#entry-{{ entry.id }}"
+                   hx-swap="outerHTML">
+                    Edit
+                </button>
+
+                <!-- Delete Button -->
+                <button class="btn btn-sm btn-outline-danger"
+                        hx-delete="{% url 'delete_entry' entry.id %}" 
+                        hx-target="#entry-{{ entry.id }}" 
+                        hx-swap="outerHTML"
+                        hx-confirm="Are you sure you want to delete this entry?"
+                        hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
